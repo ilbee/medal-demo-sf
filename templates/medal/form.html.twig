@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une médaille{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-between p-3">
+        <h2>Ajouter une médaille</h2>
+
+        {{ form_start(medalForm) }}
+            {{ form_row(medalForm.color) }}
+            {{ form_row(medalForm.sport) }}
+            {{ form_row(medalForm.nation) }}
+            <div class="d-flex justify-content-end">
+                <button type="reset" class="btn btn-danger m-1">
+                    <i class="fa-solid fa-trash"></i>
+                    Annuler
+                </button>
+                <button type="submit" class="btn btn-success m-1">
+                    <i class="fa-solid fa-medal"></i>
+                    Ajouter
+                </button>
+            </div>
+        {{ form_end(medalForm) }}
+    </div>
+{% endblock %}

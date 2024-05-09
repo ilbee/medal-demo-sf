@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nation {{ nation.name }}{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-between p-3">
+        <h2>Résultat de la nation {{ nation.name }} <span class="fi fi-{{ nation.code }}"></span></h2>
+
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Sport</th>
+                    <th>Couleur</th>
+                    <th>Points</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for medal in nation.medals %}
+                    <tr>
+                        <td>{{ medal.sport.fullName }}</td>
+                        <td>
+                            <i class="fa fa-trophy" style="color:
+                            {% if medal.color is constant('App\\Entity\\Medal::COLOR_OR') %}gold
+                            {% elseif medal.color is constant('App\\Entity\\Medal::COLOR_ARGENT') %}silver
+                            {% elseif medal.color is constant('App\\Entity\\Medal::COLOR_BRONZE') %}brown
+                            {% endif %}"></i>
+                            {{ medal.color|capitalize }}
+                        </td>
+                        <td>{{ medal.point }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

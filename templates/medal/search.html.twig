@@ -1,0 +1,16 @@
+{{ form_start(searchForm, {
+    'attr': {
+        'class': 'd-flex input-group w-auto',
+        'action': path('app_search'),
+    }
+    }) }}
+    {{ form_widget(searchForm.name, {'attr': {
+        'class': 'form-control rounded',
+        'placeholder': 'Recherchez une nation',
+        'aria-label': 'Recherche',
+        'aria-describedby': 'search-addon'
+    }}) }}
+    <button type="submit" class="input-group-text border-0" id="search-addon">
+        <i class="fas fa-search"></i>
+    </button>
+{{ form_end(searchForm) }}

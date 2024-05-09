@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <div class="row align-items-end">
+            <!-- Médaille d'argent -->
+            <div class="col-md-4">
+                <div class="card text-center" style="background-color: #C0C0C0;height: 220px;">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <span class="fi fi-{{ argent.nation.code }}"></span>
+                            <a href="{{ path('app_nation', {nation: argent.nation.id}) }}" class="text-dark">{{ argent.nation.name }}</a>
+                        </div>
+                        <p class="card-text bg-light rounded">
+                            <i class="fa fa-medal" style="color: gold;"></i>
+                            {{ argent.nation.countGoldMedals }}
+                            <i class="fa fa-medal" style="color: silver;"></i>
+                            {{ argent.nation.countSilverMedals }}
+                            <i class="fa fa-medal" style="color: brown;"></i>
+                            {{ argent.nation.countBronzeMedals }}
+                        </p>
+                        <div class="card-footer text-muted">
+                            {{ argent.total }} point(s)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Médaille d'or -->
+            <div class="col-md-4">
+                <div class="card text-center" style="background-color: #FFD700; height: 300px;">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <span class="fi fi-{{ or.nation.code }}"></span>
+                            <a href="{{ path('app_nation', {nation: or.nation.id}) }}" class="text-dark">{{ or.nation.name }}</a>
+                        </div>
+                        <p class="card-text bg-light rounded">
+                            <i class="fa fa-medal" style="color: gold;"></i>
+                            {{ or.nation.countGoldMedals }}
+                            <i class="fa fa-medal" style="color: silver;"></i>
+                            {{ or.nation.countSilverMedals }}
+                            <i class="fa fa-medal" style="color: brown;"></i>
+                            {{ or.nation.countBronzeMedals }}
+                        </p>
+                        <div class="card-footer text-muted">
+                            {{ or.total }} point(s)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Médaille de bronze -->
+            <div class="col-md-4">
+                <div class="card text-center" style="background-color: #CD7F32;height: 150px;">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <span class="fi fi-{{ bronze.nation.code }}"></span>
+                            <a href="{{ path('app_nation', {nation: bronze.nation.id}) }}" class="text-dark">{{ bronze.nation.name }}</a>
+                        </div>
+                        <p class="card-text bg-light rounded">
+                            <i class="fa fa-medal" style="color: gold;"></i>
+                            {{ bronze.nation.countGoldMedals }}
+                            <i class="fa fa-medal" style="color: silver;"></i>
+                            {{ bronze.nation.countSilverMedals }}
+                            <i class="fa fa-medal" style="color: brown;"></i>
+                            {{ bronze.nation.countBronzeMedals }}
+                        </p>
+                        <div class="card-footer text-muted">
+                            {{ bronze.total }} point(s)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
